@@ -16,7 +16,7 @@ def lambda_handler(event, context):
     print("hello")
     print("hello")
     print("hello")
-    # # ruleid: tainted-json-aws-lambda
-    # json.load(tainted, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None)
-    # # ruleid: tainted-json-aws-lambda
-    # json.loads(tainted)
+    # ruleid: tainted-json-aws-lambda
+    json.load(tainted, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None)
+    # ruleid: tainted-json-aws-lambda
+    json.loads(tainted)
