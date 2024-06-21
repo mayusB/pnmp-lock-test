@@ -12,6 +12,7 @@ class FooBar {
     val action2 = sql"select ID, NAME, AGE from $name".as[(Int,String,Int)]
     db.run(action2)
   }
+}
 
 class FooBar {
   def something(name: String) = {
@@ -39,3 +40,4 @@ class FooBar {
     val action2 = sql"select ID, NAME, AGE from $name".as[(Int,String,Int)]
     db.run(action2)
   }
+}
