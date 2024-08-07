@@ -1,0 +1,22 @@
+variables:
+- group: Semgrep_Mayowa
+
+jobs:
+- job: Semgrep
+  steps:
+    - script: |
+        python -m pip install --upgrade pip
+        pip install semgrep
+        if [ $(Build.SourceBranchName) = "main" ]; then
+            echo "Semgrep full scan"
+            semgrep login
+            semgrep ci
+        elif [ $(Build.SourceBranchName) != "main" ]; then
+            echo "Semgrep diff scan"
+            echo "Pull Request Scan from branch: $(Build.SourceBranchName)"
+            git fetch origin main:origin/main
+            semgrep login
+            semgrep ci
+        fi
+      env:
+        SEMGREP_APP_TOKEN: $(SEMGREP_APP_TOKEN)     
