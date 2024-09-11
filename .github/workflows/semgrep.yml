@@ -20,4 +20,4 @@ jobs:
     - uses: actions/checkout@v4
       with: 
         fetch-depth: 0
-    - run: semgrep ci --baseline-commit $(git merge-base main HEAD)
+    - run: semgrep ci --baseline-commit ${{ github.sha }}
