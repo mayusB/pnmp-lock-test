@@ -3,7 +3,7 @@ on:
   pull_request: {}
   push:
     branches:
-    - ${{ github.ref_name }}
+    - main
     paths:
     - .github/workflows/semgrep.yml
 name: Semgrep
